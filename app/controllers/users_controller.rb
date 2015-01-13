@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  include ApplicationHelper
-  
+  before_filter :authorize, only: [:show]
+
   def show
-    @user = current_user
+    @user = User.find(params[:id])
+    authorize! :read, @user
   end
 
 end
