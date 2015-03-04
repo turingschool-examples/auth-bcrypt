@@ -40,7 +40,7 @@ class UserProfileTest < ActionDispatch::IntegrationTest
     ApplicationController.any_instance.stubs(:current_user).returns(admin_user)
     visit user_path(user)
     within("#banner") do
-      assert page.has_content?("Welcome example")
+      assert page.has_content?("Richard's profile")
     end
   end
 end
